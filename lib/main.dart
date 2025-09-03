@@ -36,8 +36,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // TODO: Replace this with your actual cart product list source or import.
-  // If you have a cart.dart file that exports cartProductList, import it above.
   List cartProductList = [];
 
   @override
