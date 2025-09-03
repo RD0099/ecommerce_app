@@ -36,6 +36,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // TODO: Replace this with your actual cart product list source or import.
+  // If you have a cart.dart file that exports cartProductList, import it above.
+  List cartProductList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,17 +59,34 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const CartPage()),
-                );
-              },
-              icon: const Icon(Icons.shopping_cart),
-            ),
+          Stack(
+            alignment: const Alignment(0.5, -1),
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const CartPage()),
+                  );
+                },
+                icon: const Icon(Icons.shopping_cart),
+              ),
+              if (cartProductList.isNotEmpty)
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5,
+                    vertical: 2,
+                  ),
+                  child: Text(
+                    cartProductList.length.toString(),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+            ],
           ),
         ],
       ),

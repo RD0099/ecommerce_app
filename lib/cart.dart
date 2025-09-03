@@ -125,7 +125,7 @@ class _CartPageState extends State<CartPage> {
 
       // Spacer(),
       bottomNavigationBar: SizedBox(
-        height: 65,
+        height: 70,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Row(

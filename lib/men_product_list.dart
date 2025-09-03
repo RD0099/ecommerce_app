@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/cart.dart';
 import 'package:ecommerce_app/product_detail_page.dart';
 import 'package:ecommerce_app/product_model.dart';
+// import 'package:ecommerce_app/cart_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductList extends StatefulWidget {
@@ -23,11 +25,34 @@ class _ProductList extends State<ProductList> {
         centerTitle: true,
         title: const Text("Men"),
         actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.shopping_cart),
+          Stack(
+            alignment: const Alignment(0.5, -1),
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const CartPage()),
+                  );
+                },
+                icon: const Icon(Icons.shopping_cart),
+              ),
+              if (cartProductList.isNotEmpty)
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5,
+                    vertical: 2,
+                  ),
+                  child: Text(
+                    cartProductList.length.toString(),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+            ],
           ),
         ],
       ),

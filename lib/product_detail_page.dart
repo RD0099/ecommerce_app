@@ -97,7 +97,7 @@ class _DetailPageState extends State<DetailPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: 300,
+                  height: 280,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(color: Colors.blueGrey.shade50),
                   clipBehavior: Clip.hardEdge,
